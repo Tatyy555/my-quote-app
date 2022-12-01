@@ -125,9 +125,9 @@ function App() {
       {/* Content */}
       {isLoading === false && quote[0] !== undefined ? (
         <div className="container mx-auto flex px-5 pt-12 pb-20 md:flex-row flex-col items-center">
-          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 md:mb-0 mb-10">
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 md:mb-0 mb-10 flex flex-col justify-center items-center ">
             <img
-              className="object-contain bg-white object-center rounded-3xl w-[720] h-[600]"
+              className="object-fill  bg-white rounded-3xl w-[720] h-[600]"
               alt="authorImg"
               src={authorImg}
             />
