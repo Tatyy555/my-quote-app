@@ -113,7 +113,7 @@ function App() {
     <section className="text-gray-400 bg-gradient-to-tr from-green-800 via-blue-800 to-purple-900 body-font min-h-screen min-w-screen">
       {/* Title */}
       <p
-        className="flex items-center px-10 pt-9 lg:px-20 xl:px-32 text-indigo-400  font-bold text-6xl lg:text-8xl"
+        className="flex items-center px-10 pt-9 lg:px-20 xl:px-32 text-indigo-400  font-bold text-4xl sm:text-6xl lg:text-8xl"
         href="#"
       >
         Quote
@@ -127,7 +127,7 @@ function App() {
         <div className="container mx-auto flex px-5 pt-12 pb-20 md:flex-row flex-col items-center">
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 md:mb-0 mb-10">
             <img
-              className="object-contain object-center rounded-3xl w-[720] h-[600]"
+              className="object-contain bg-white object-center rounded-3xl w-[720] h-[600]"
               alt="authorImg"
               src={authorImg}
             />
