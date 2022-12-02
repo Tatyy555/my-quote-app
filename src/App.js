@@ -25,11 +25,12 @@ function App() {
         fetch(url)
           .then((response) => response.json())
           .then((response) => {
-            setAuthorImg(response.originalimage.source);
+            if(response)setAuthorImg(response.originalimage.source);
           });
       })
       .catch((err) => {
         console.error(err);
+        console.log("Here goes Google search")
 
         // The Follwing is for Google. It runs if Wiki is not available
         let url = `https://www.googleapis.com/customsearch/v1/siterestrict?key=${
