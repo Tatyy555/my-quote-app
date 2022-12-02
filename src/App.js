@@ -27,32 +27,30 @@ function App() {
           .then((response) => {
             if (response.originalimage.source === undefined) {
               console.log("Here goes Google search");
-                  // The Follwing is for Google. It runs if Wiki is not available
-        let url = `https://www.googleapis.com/customsearch/v1/siterestrict?key=${
-          process.env.REACT_APP_GOOGLE_API_KEY
-        }&cx=51654d013c4c24926&q=${text + " portlait"}&searchType=image&num=1`;
-        fetch(url)
-          .then((response) => response.json())
-          .then((response) => {
-            console.log(response);
-            console.log(response.items[0].link);
-            setAuthorImg(response.items[0].link);
-          })
-          .catch((err) => {
-            console.log("ERRORR!!!!");
-            console.error(err);
-          });
-              
-            }else{
+              // The Follwing is for Google. It runs if Wiki is not available
+              let url = `https://www.googleapis.com/customsearch/v1/siterestrict?key=${
+                process.env.REACT_APP_GOOGLE_API_KEY
+              }&cx=51654d013c4c24926&q=${
+                text + " portlait"
+              }&searchType=image&num=1`;
+              fetch(url)
+                .then((response) => response.json())
+                .then((response) => {
+                  console.log(response);
+                  console.log(response.items[0].link);
+                  setAuthorImg(response.items[0].link);
+                })
+                .catch((err) => {
+                  console.log("ERRORR!!!!");
+                  console.error(err);
+                });
+            } else {
               setAuthorImg(response.originalimage.source);
             }
           });
       })
       .catch((err) => {
         console.error(err);
-        
-
-    
       });
   };
 
