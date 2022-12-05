@@ -132,17 +132,17 @@ function App() {
         <div className="container mx-auto flex px-5 pt-12 pb-20 md:flex-row flex-col items-center">
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 md:mb-0 mb-10 flex flex-col justify-center items-center ">
             <img
-              className="object-contain relative  bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-gray-400 p-5 via-gray-600 to-blue-800 rounded-3xl w-[720px] h-[600px]"
+              className="object-contain relative  bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-gray-300 p-5 via-gray-400 to-blue-800 rounded-3xl w-[720px] h-[600px]"
               alt="authorImg"
               src={authorImg}
             />
           </div>
           <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
+            <h1 className=" text-2xl font-extralight mb-4 leading-loose md:leading-10 text-white">
               {quote[0].quote}
             </h1>
             <p className="mb-8 leading-relaxed text-2xl">{quote[0].author}</p>
-            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
+            <h1 className=" text-2xl font-extralight mb-4 leading-loose md:leading-10 text-white">
               {quoteJp}
             </h1>
             <p className="mb-8 leading-relaxed text-2xl">{authorJp}</p>
