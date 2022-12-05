@@ -118,7 +118,7 @@ function App() {
     <section className="text-gray-400 bg-gradient-to-tr from-green-800 via-blue-800 to-purple-900 body-font min-h-screen min-w-screen">
       {/* Title */}
       <p
-        className="flex items-center px-10 pt-9 lg:px-20 xl:px-32 text-indigo-400  font-bold text-4xl sm:text-6xl lg:text-8xl"
+        className="flex items-center px-10 pt-9 lg:px-20 xl:px-32 text-indigo-300  font-bold text-4xl sm:text-6xl lg:text-8xl"
         href="#"
       >
         Quote
@@ -132,7 +132,7 @@ function App() {
         <div className="container mx-auto flex px-5 pt-12 pb-20 md:flex-row flex-col items-center">
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 md:mb-0 mb-10 flex flex-col justify-center items-center ">
             <img
-              className="object-fill  bg-white rounded-3xl w-[720] h-[600]"
+              className="object-contain relative  bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-gray-400 p-5 via-gray-600 to-blue-800 rounded-3xl w-[720px] h-[600px]"
               alt="authorImg"
               src={authorImg}
             />
