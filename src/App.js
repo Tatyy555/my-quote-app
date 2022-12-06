@@ -133,9 +133,9 @@ function App() {
       {/* Content */}
       {isLoading === false && quote[0] !== undefined ? (
         <div className="container mx-auto flex px-5 pt-12 pb-20 md:flex-row flex-col items-center">
-          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6  max-h-[40vh] min-h-[40vh] sm:max-h-[60vh] sm:min-h-[60vh] md:mb-0 mb-10 flex flex-col justify-center items-center bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-gray-300  via-gray-400 to-blue-800 px-5 rounded-3xl overflow-hidden relative">
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6  max-h-[40vh] min-h-[40vh] sm:max-h-[60vh] sm:min-h-[60vh] md:mb-0 mb-10 flex flex-col justify-center items-center bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-gray-300  via-gray-400 to-blue-800 rounded-3xl overflow-hidden relative">
             <img
-              className="object-contain absolute h-full"
+              className="object-contain absolute h-full w-full"
               alt="authorImg"
               src={authorImg}
             />
