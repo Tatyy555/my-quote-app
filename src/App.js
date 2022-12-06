@@ -141,11 +141,11 @@ function App() {
             />
           </div>
           <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-            <h1 className=" text-2xl font-extralight mb-4 leading-loose md:leading-10 text-white">
+            <h1 className=" text-2xl font-extralight mb-4 leading-loose md:leading-10 text-white md:text-3xl">
               {quote[0].quote}
             </h1>
-            <p className="mb-8 leading-relaxed text-2xl">{quote[0].author}</p>
-            <h1 className=" text-2xl font-extralight mb-4 leading-loose md:leading-10 text-white">
+            <p className="mb-8 leading-relaxed text-2xl ">{quote[0].author}</p>
+            <h1 className=" text-2xl font-extralight mb-4 leading-loose md:leading-10 text-white md:text-3xl">
               {quoteJp}
             </h1>
             <p className="mb-8 leading-relaxed text-2xl">{authorJp}</p>
