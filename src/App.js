@@ -20,34 +20,37 @@ function App() {
     fetch(url)
       .then((response) => response.json())
       .then((response) => {
-        let title = response[1][0].replace(/ /g, "_");
-        url = `https://en.wikipedia.org/api/rest_v1/page/summary/${title}`;
+        if (!response[1][0]) {
+          googleSearchApi(text);
+        } else {
+          let title = response[1][0].replace(/ /g, "_");
+          url = `https://en.wikipedia.org/api/rest_v1/page/summary/${title}`;
+        }
         fetch(url)
           .then((response) => response.json())
           .then((response) => {
-            if (response.originalimage.source === undefined) {
-              console.log("Here goes Google search");
-              // The Follwing is for Google. It runs if Wiki is not available
-              let url = `https://www.googleapis.com/customsearch/v1/siterestrict?key=${
-                process.env.REACT_APP_GOOGLE_API_KEY
-              }&cx=51654d013c4c24926&q=${
-                text + " portlait"
-              }&searchType=image&num=1`;
-              fetch(url)
-                .then((response) => response.json())
-                .then((response) => {
-                  console.log(response);
-                  console.log(response.items[0].link);
-                  setAuthorImg(response.items[0].link);
-                })
-                .catch((err) => {
-                  console.log("ERRORR!!!!");
-                  console.error(err);
-                });
+            if (!response.originalimage) {
+              googleSearchApi(text);
             } else {
               setAuthorImg(response.originalimage.source);
             }
           });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  const googleSearchApi = (text) => {
+    console.log("Here goes Google search");
+    // The Follwing is for Google. It runs if Wiki is not available
+    let url = `https://www.googleapis.com/customsearch/v1/siterestrict?key=${
+      process.env.REACT_APP_GOOGLE_API_KEY
+    }&cx=51654d013c4c24926&q=${text + " portlait"}&searchType=image&num=1`;
+    fetch(url)
+      .then((response) => response.json())
+      .then((response) => {
+        setAuthorImg(response.items[0].link);
       })
       .catch((err) => {
         console.error(err);
@@ -115,10 +118,10 @@ function App() {
   }, []);
 
   return (
-    <section className="text-gray-400 bg-gradient-to-tr from-green-800 via-blue-800 to-purple-900 body-font min-h-screen min-w-screen">
+    <section className="text-gray-400 bg-gradient-to-tr from-green-800 via-blue-800 to-purple-900 min-h-screen min-w-screen">
       {/* Title */}
       <p
-        className="flex items-center px-10 pt-9 lg:px-20 xl:px-32 text-indigo-300  font-bold text-4xl sm:text-6xl lg:text-8xl"
+        className="flex items-center px-5 sm:px-10 pt-9 lg:px-20 xl:px-32 text-indigo-300  font-bold text-4xl sm:text-6xl lg:text-8xl"
         href="#"
       >
         Quote
@@ -129,10 +132,10 @@ function App() {
 
       {/* Content */}
       {isLoading === false && quote[0] !== undefined ? (
-        <div className="container mx-auto flex px-5 pt-12 pb-20 md:flex-row flex-col items-center">
-          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 md:mb-0 mb-10 flex flex-col justify-center items-center ">
+        <div className="mx-auto flex px-5 pt-12 pb-20 md:flex-row flex-col items-center">
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6  max-h-[40vh] min-h-[40vh] sm:max-h-[60vh] sm:min-h-[60vh] md:mb-0 mb-10 flex flex-col justify-center items-center bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-gray-300  via-gray-400 to-blue-800 px-5 rounded-3xl overflow-hidden relative">
             <img
-              className="object-contain relative  bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-gray-300 p-5 via-gray-400 to-blue-800 rounded-3xl w-[720px] h-[600px]"
+              className="object-contain absolute h-full"
               alt="authorImg"
               src={authorImg}
             />
